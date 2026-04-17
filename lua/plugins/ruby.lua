@@ -1,0 +1,88 @@
+-- ~/.config/nvim/lua/plugins/ruby.lua
+
+return {
+  -- 1. Setup LSP server
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        -- Tell LazyVim to use ruby_lsp instead of solargraph
+        ruby_lsp = {
+          -- Important: DO NOT install via mason, use bundler
+          mason = false,
+          -- We launch LSP via bundle so that it can see all the project's gems
+          -- cmd = { "bundle", "exec", "ruby-lsp" },
+          cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
+          -- cmd = function()
+          --   if vim.fn.filereadable("Gemfile") == 1 then
+          --     local gemfile = vim.fn.readfile("Gemfile")
+          --     for _, line in ipairs(gemfile) do
+          --       if line:match("ruby%-lsp") then
+          --         return { "bundle", "exec", "ruby-lsp" }
+          --       end
+          --     end
+          --   end
+          --
+          --   -- if Gemfile does not includes ruby_lsp use global gem
+          --   return { vim.fn.expand("~/.asdf/shims/ruby-lsp") }
+          -- end,
+        },
+        -- Turn off the old solargraph if it suddenly turns on.
+        solargraph = {
+          enabled = false,
+        },
+        nil_ls = false,
+      },
+    },
+  },
+
+  -- 2. Add the legendary tpope/vim-rails plugin for navigation
+  {
+    "tpope/vim-rails",
+    "vim-ruby/vim-ruby",
+    "tpope/vim-bundler",
+    -- Adding useful shortcuts in the style of LazyVim
+    keys = {
+      { "<leader>cR", "<Plug>RailsFindRoutes", desc = "Find Route" },
+      { "<leader>cm", "<Plug>RailsFindModel", desc = "Find Model" },
+      { "<leader>cc", "<Plug>RailsFindController", desc = "Find Controller" },
+      { "<leader>cv", "<Plug>RailsFindView", desc = "Find View" },
+      { "<leader>cj", "<Plug>RailsFindJavaScript", desc = "Find JS" },
+      { "<leader>cs", "<Plug>RailsFindStylesheet", desc = "Find CSS" },
+    },
+  },
+
+  -- 3. Setting up formatting for ERB and Ruby files
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        -- We use standard rubocop for .rb files
+        ruby = { "rubocop" },
+        -- For ERB templates we use erb_format (need gem install erb_format)
+        eruby = { "erb_format" },
+      },
+    },
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    opts = {
+      ensure_installed = { "ruby", "bash", "html", "lua", "markdown", "vim" },
+      auto_install = true,
+      sync_install = false,
+      endwise = { enabled = true },
+      ident = { enabled = true },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = { "ruby" },
+      },
+    },
+  },
+
+  {
+    "asdf-vm/asdf",
+    event = "VeryLazy",
+  },
+}
