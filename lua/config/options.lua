@@ -22,6 +22,15 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.o.sessionoptions = vim.o.sessionoptions .. ",localoptions"
 
+-- folding (zf)
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+-- (optional) Level of opening flods
+-- 99 - all folds will be opened
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldcolumn = "1"
+
 -- ============================================================================
 -- Disable Providers (silence health check warnings)
 -- ============================================================================
@@ -36,7 +45,7 @@ vim.opt.clipboard = "unnamedplus" -- Use system clipboard for all yank/paste ope
 vim.opt.undofile = true -- Persist undo history to disk between sessions
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undo" -- Directory to store undo files
 vim.opt.updatetime = 100 -- Time in ms before CursorHold event triggers (affects plugins)
-vim.opt.timeoutlen = 1000 -- Time in ms to wait for a mapped key sequence to complete
+-- vim.opt.timeoutlen = 1000 -- Time in ms to wait for a mapped key sequence to complete
 vim.opt.confirm = true -- Prompt for confirmation instead of failing on unsaved changes
 vim.opt.autoread = true -- Automatically reload files changed outside of Neovim
 

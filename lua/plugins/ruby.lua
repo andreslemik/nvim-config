@@ -8,6 +8,7 @@ return {
       servers = {
         -- Tell LazyVim to use ruby_lsp instead of solargraph
         ruby_lsp = {
+          offset_encoding = "utf-8",
           -- Important: DO NOT install via mason, use bundler
           mason = false,
           -- We launch LSP via bundle so that it can see all the project's gems
@@ -31,6 +32,10 @@ return {
         solargraph = {
           enabled = false,
         },
+        rubocop = {
+          enabled = false,
+        },
+
         nil_ls = false,
       },
     },
@@ -56,11 +61,26 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
+      formatters = {
+        rubocop_bundled = {
+          command = "./bin/rubocop",
+          args = { "--stdin", "$FILENAME", "--format", "quiet", "--autocorrect-all" },
+          stdin = true,
+          cwd = require("conform.util").root_file({ "Gemfile", ".git" }),
+        },
+
+        haml_lint = {
+          command = "haml-lint",
+          args = { "--auto-correct", "--stdin", "$FILENAME" },
+          stdin = true,
+        },
+      },
       formatters_by_ft = {
         -- We use standard rubocop for .rb files
-        ruby = { "rubocop" },
+        ruby = { "ruby-lsp" },
         -- For ERB templates we use erb_format (need gem install erb_format)
-        eruby = { "erb_format" },
+        -- eruby = { "trim_whitespace", "erb_format" },
+        haml = { "trim_whitespace", "haml_lint" },
       },
     },
   },
