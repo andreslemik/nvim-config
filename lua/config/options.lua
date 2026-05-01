@@ -18,8 +18,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- vim.g.lazyvim_picker = "telescope"
-
 vim.o.sessionoptions = vim.o.sessionoptions .. ",localoptions"
 
 -- folding (zf)
@@ -101,21 +99,21 @@ vim.opt.conceallevel = 0 -- Show all text normally (no concealment)
 -- Other
 -- ============================================================================
 vim.opt.title = true -- Set window title to filename
-vim.opt.guifont = "monospace:h17" -- Font for GUI Neovim (e.g., Neovide)
+-- vim.opt.guifont = "monospace:h17" -- Font for GUI Neovim (e.g., Neovide)
 
 -- ============================================================================
 -- Filetype Detection
 -- ============================================================================
-vim.filetype.add({
-  extenstion = {
-    env = "dotenv", -- Treat .env extension as dotenv filetype
-  },
-  filename = {
-    [".env"] = "dotenv", -- Treat .env file as dotenv filetype
-    ["env"] = "dotenv", -- Treat env file as dotenv filetype
-  },
-  pattern = {
-    ["[jt]sconfig.*.json"] = "jsonc", -- Treat tsconfig/jsconfig files as JSONC (allows comments)
-    ["%.env%.[%w_.-]+"] = "dotenv", -- Treat .env.* files as dotenv filetype
-  },
-})
+-- vim.filetype.add({
+--   extenstion = {
+--     env = "dotenv", -- Treat .env extension as dotenv filetype
+--   },
+--   filename = {
+--     [".env"] = "dotenv", -- Treat .env file as dotenv filetype
+--     ["env"] = "dotenv", -- Treat env file as dotenv filetype
+--   },
+--   pattern = {
+--     ["[jt]sconfig.*.json"] = "jsonc", -- Treat tsconfig/jsconfig files as JSONC (allows comments)
+--     ["%.env%.[%w_.-]+"] = "dotenv", -- Treat .env.* files as dotenv filetype
+--   },
+-- })

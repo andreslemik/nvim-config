@@ -8,6 +8,7 @@ return {
       typescript = { "standard" },
       typescriptreact = { "standard" },
       vue = { "standard" },
+      json = { "jq" }, -- or "fixjson"
     },
     formatters = {
       standard = {

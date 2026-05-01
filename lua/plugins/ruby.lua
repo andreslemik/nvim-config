@@ -42,20 +42,23 @@ return {
   },
 
   -- 2. Add the legendary tpope/vim-rails plugin for navigation
-  {
-    "tpope/vim-rails",
-    "vim-ruby/vim-ruby",
-    "tpope/vim-bundler",
-    -- Adding useful shortcuts in the style of LazyVim
-    keys = {
-      { "<leader>cR", "<Plug>RailsFindRoutes", desc = "Find Route" },
-      { "<leader>cm", "<Plug>RailsFindModel", desc = "Find Model" },
-      { "<leader>cc", "<Plug>RailsFindController", desc = "Find Controller" },
-      { "<leader>cv", "<Plug>RailsFindView", desc = "Find View" },
-      { "<leader>cj", "<Plug>RailsFindJavaScript", desc = "Find JS" },
-      { "<leader>cs", "<Plug>RailsFindStylesheet", desc = "Find CSS" },
-    },
-  },
+  -- {
+  --   "tpope/vim-rails",
+  --   dependencies = {
+  --     "vim-ruby/vim-ruby",
+  --     "tpope/vim-bundler",
+  --   },
+  --   lazy = false,
+  --   -- Adding useful shortcuts in the style of LazyVim
+  --   keys = {
+  --     { "<leader>rR", "<Plug>RailsFindRoutes", desc = "Find Route" },
+  --     { "<leader>rm", "<Plug>RailsFindModel", desc = "Find Model" },
+  --     { "<leader>rc", "<Plug>RailsFindController", desc = "Find Controller" },
+  --     { "<leader>rv", "<Plug>RailsFindView", desc = "Find View" },
+  --     { "<leader>rj", "<Plug>RailsFindJavaScript", desc = "Find JS" },
+  --     { "<leader>rs", "<Plug>RailsFindStylesheet", desc = "Find CSS" },
+  --   },
+  -- },
 
   -- 3. Setting up formatting for ERB and Ruby files
   {

@@ -5,17 +5,20 @@ return {
 
   init = function()
     local ensure_installed = {
+      "css",
       "haml",
       "html",
       "javascript",
+      "javascriptreact",
+      "latex",
       "lua",
       "ruby",
+      "scss",
+      "tsx",
+      "typescript",
+      "typst",
       "vim",
       "vimdoc",
-      "css",
-      "latex",
-      "scss",
-      "typst",
     }
     local installed = require("nvim-treesitter.config").get_installed()
     local to_install = vim
@@ -31,7 +34,7 @@ return {
 
   config = function()
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "haml", "ruby", "lua", "html", "javascript" },
+      pattern = { "haml", "ruby", "lua", "html", "javascript", "typescript", "tsx" },
       callback = function()
         pcall(vim.treesitter.start)
 
