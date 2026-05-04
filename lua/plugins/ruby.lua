@@ -79,11 +79,9 @@ return {
         },
       },
       formatters_by_ft = {
-        -- We use standard rubocop for .rb files
-        ruby = { "ruby-lsp" },
         -- For ERB templates we use erb_format (need gem install erb_format)
         -- eruby = { "trim_whitespace", "erb_format" },
-        haml = { "trim_whitespace", "haml_lint" },
+        haml = { "trim_whitespace" },
       },
     },
   },
