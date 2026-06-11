@@ -13,6 +13,7 @@ return {
       "latex",
       "lua",
       "ruby",
+      "erb",
       "scss",
       "tsx",
       "typescript",

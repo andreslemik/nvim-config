@@ -9,6 +9,7 @@ return {
       typescriptreact = { "standard" },
       vue = { "standard" },
       json = { "jq" }, -- or "fixjson"
+      eruby = { "erb_format" },
     },
     formatters = {
       standard = {
