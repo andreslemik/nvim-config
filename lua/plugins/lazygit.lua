@@ -5,7 +5,7 @@ return {
     cmd = "LazyGit",
     keys = {
       { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-      { "<leader>gG", "<cmd>LazyGitFiltered<cr>", desc = "LazyGit (Current File" },
+      { "<leader>gG", "<cmd>LazyGitFiltered<cr>", desc = "LazyGit (Current File)" },
     },
     config = function() end,
   },

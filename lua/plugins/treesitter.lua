@@ -37,8 +37,6 @@ return {
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "haml", "ruby", "lua", "html", "javascript", "typescript", "tsx" },
       callback = function()
-        pcall(vim.treesitter.start)
-
         if vim.bo.filetype == "haml" then
           vim.bo.autoindent = true
           vim.bo.smartindent = false

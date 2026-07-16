@@ -9,14 +9,14 @@
 
 vim.filetype.add({
   extension = {
+    arb = "ruby",
     mdx = "markdown.mdx",
-    jsx = "javascript.jsx",
     tsx = "typescript.tsx",
   },
 })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+  pattern = { "*.js", "*.jsx" },
   callback = function()
     vim.bo.filetype = "javascriptreact"
   end,

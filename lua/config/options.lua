@@ -10,14 +10,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- *.arb files
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*.arb",
-  callback = function()
-    vim.bo.filetype = "ruby"
-  end,
-})
-
 vim.o.sessionoptions = vim.o.sessionoptions .. ",localoptions"
 
 -- folding (zf)
@@ -53,7 +45,7 @@ function EscapePair()
   end
 end
 
-vim.api.nvim_set_keymap("i", "<C-l>", "<cmd>lua EscapePair()<CR>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-l>", EscapePair, { desc = "Jump to next closing character" })
 
 -- ============================================================================
 -- Disable Providers (silence health check warnings)

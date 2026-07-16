@@ -1,13 +1,11 @@
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
-  opts = {},
   dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
   },
-
-  require("noice").setup({
+  opts = {
     lsp = {
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -20,5 +18,5 @@ return {
       command_palette = true,
       long_message_to_split = true,
     },
-  }),
+  },
 }

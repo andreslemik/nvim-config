@@ -6,6 +6,6 @@ return {
   },
   init = function()
     vim.g.tabby_agent_start_command = { "npx", "tabby-agent", "--stdio" }
-    vim.g.tabbly_inline_completion_trigger = "auto"
+    vim.g.tabby_inline_completion_trigger = "auto"
   end,
 }
