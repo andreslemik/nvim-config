@@ -8,7 +8,6 @@ return {
       servers = {
         -- Tell LazyVim to use ruby_lsp instead of solargraph
         ruby_lsp = {
-          offset_encoding = "utf-8",
           -- Important: DO NOT install via mason, use bundler
           mason = false,
           -- We launch LSP via bundle so that it can see all the project's gems
