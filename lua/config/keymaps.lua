@@ -7,3 +7,5 @@ vim.keymap.set("n", "<leader>fp", ':let @+ = expand("%:p")<CR>', { desc = "[F]il
 
 -- Скопировать только имя файла
 vim.keymap.set("n", "<leader>fn", ':let @+ = expand("%:t")<CR>', { desc = "[F]ile [N]ame to clipboard" })
+
+vim.keymap.set("o", "<leader>o", "<cmd>o<cr>", { desc = "Overlook" })
