@@ -12,20 +12,8 @@ return {
           mason = false,
           -- We launch LSP via bundle so that it can see all the project's gems
           -- cmd = { "bundle", "exec", "ruby-lsp" },
-          cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
-          -- cmd = function()
-          --   if vim.fn.filereadable("Gemfile") == 1 then
-          --     local gemfile = vim.fn.readfile("Gemfile")
-          --     for _, line in ipairs(gemfile) do
-          --       if line:match("ruby%-lsp") then
-          --         return { "bundle", "exec", "ruby-lsp" }
-          --       end
-          --     end
-          --   end
-          --
-          --   -- if Gemfile does not includes ruby_lsp use global gem
-          --   return { vim.fn.expand("~/.asdf/shims/ruby-lsp") }
-          -- end,
+          -- cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
+          cmd = { "mise", "x", "--", "ruby-lsp" },
         },
         -- Turn off the old solargraph if it suddenly turns on.
         solargraph = {
