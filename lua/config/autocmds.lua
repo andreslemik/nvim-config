@@ -10,6 +10,7 @@
 vim.filetype.add({
   extension = {
     arb = "ruby",
+    herb = "eruby", -- Herb templates (https://herb-tools.dev)
     mdx = "markdown.mdx",
     tsx = "typescript.tsx",
   },

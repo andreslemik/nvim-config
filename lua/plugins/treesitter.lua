@@ -13,7 +13,8 @@ return {
       "latex",
       "lua",
       "ruby",
-      "erb",
+      -- eruby (and .herb) map to the embedded_template parser; there is no "erb" parser
+      "embedded_template",
       "scss",
       "tsx",
       "typescript",

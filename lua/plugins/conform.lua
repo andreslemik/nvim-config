@@ -9,7 +9,7 @@ return {
       typescriptreact = { "standard" },
       vue = { "standard" },
       json = { "jq" }, -- or "fixjson"
-      eruby = { "erb_format" },
+      -- eruby is formatted by herb_format, see lua/plugins/herb.lua
     },
     formatters = {
       standard = {

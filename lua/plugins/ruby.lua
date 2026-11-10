@@ -66,8 +66,7 @@ return {
         },
       },
       formatters_by_ft = {
-        -- For ERB templates we use erb_format (need gem install erb_format)
-        -- eruby = { "trim_whitespace", "erb_format" },
+        -- ERB templates are formatted by herb_format, see lua/plugins/herb.lua
         haml = { "trim_whitespace" },
       },
     },
